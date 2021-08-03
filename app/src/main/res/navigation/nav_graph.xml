@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_movies">
+
+    <fragment
+        android:id="@+id/nav_movies"
+        android:name="com.fakhry.loonly.ui.movies.dashboard.MovieFragment"
+        android:label="@string/title_movies"
+        tools:layout="@layout/fragment_movies">
+        <action
+            android:id="@+id/action_nav_movies_to_nav_top_rated"
+            app:destination="@id/nav_top_rated"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_movies_to_nav_details"
+            app:destination="@id/nav_details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="movieId"
+                android:defaultValue="0"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_nav_movies_to_nav_about"
+            app:destination="@id/nav_about" />
+        <action
+            android:id="@+id/action_nav_movies_to_nav_watchlist_movie"
+            app:destination="@id/nav_watchlist_movie" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_top_rated"
+        android:name="com.fakhry.loonly.ui.movies.list.MovieTopRatedFragment"
+        android:label="@string/title_top_rated"
+        tools:layout="@layout/fragment_top_rated">
+        <action
+            android:id="@+id/action_nav_top_rated_to_nav_details"
+            app:destination="@id/nav_details"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_details"
+        android:name="com.fakhry.loonly.ui.movies.details.MovieDetailsFragment"
+        tools:layout="@layout/fragment_movie_details">
+        <argument
+            android:name="movieId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_nav_details_self"
+            app:destination="@id/nav_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.fakhry.loonly.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/nav_watchlist_movie"
+        android:name="com.fakhry.loonly.watchlist.WatchlistMovieFragment"
+        app:moduleName="watchlist"
+        android:label="fragment_watchlist_movie"
+        tools:layout="@layout/fragment_watchlist_movie" />
+</navigation>

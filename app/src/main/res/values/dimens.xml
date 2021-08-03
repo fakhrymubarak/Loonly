@@ -1,0 +1,21 @@
+<resources>
+    <dimen name="halfPageMargin">16dp</dimen><!-- half of distance between pages -->
+    <!-- how much of adjacent pages is shown -->
+
+    <!--  GENERAL  -->
+    <dimen name="corner_radius">10dp</dimen>
+    <dimen name="margin_vertical_section">16dp</dimen>
+    <dimen name="margin_horizontal_section">16dp</dimen>
+
+    <dimen name="margin_vertical_content">12dp</dimen>
+    <dimen name="margin_horizontal_content">12dp</dimen>
+
+    <dimen name="margin_sub_content">8dp</dimen>
+
+    <!--  BACKDROP  -->
+    <dimen name="backdrop_height">175dp</dimen>
+
+    <!-- POSTER  -->
+    <dimen name="poster_height">150dp</dimen>
+    <dimen name="poster_width">100dp</dimen>
+</resources>

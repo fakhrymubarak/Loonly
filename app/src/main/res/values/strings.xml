@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Loonly</string>
+
+    <!--  AUTHOR  -->
+    <string name="author_name">A. Muh. Fakhry Mubarak</string>
+    <string name="author_email">fakhrymubarak@gmail.com</string>
+
+    <!--  BOTTOM NAVBAR  -->
+    <string name="title_movies">Movies</string>
+    <string name="title_tv">Tv Shows</string>
+    <string name="title_top_rated">Top Rated Movies</string>
+
+    <!--  SIDE NAV BAR  -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_watch_list_movies">Watchlist Movies</string>
+    <string name="menu_about">About Developer</string>
+
+    <!-- MOVIE FRAGMENT -->
+    <string name="topRated">Top Rated All Times</string>
+    <string name="popular">Populars</string>
+
+    <!-- DETAILS -->
+    <string name="movies_like_this">Movies Like This</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="share">Share</string>
+    <string name="title_fav">Module Title</string>
+    <string name="vote">%1$s (%2$s)</string>
+    <string name="year_duration">%1$s • %2$dh %3$dm</string>
+    <string name="company">%1$s</string>
+    <string name="loading">Loading</string>
+    <string name="cd_go_to_top_rated_page">Go To Top Rated Page</string>
+
+    <!--  ABOUT -->
+    <string name="github_url">https://github.com/fakhrymubarak</string>
+    <string name="gmail_address">fakhrymubarak@gmail.com</string>
+    <string name="instagram_url">https://instagram.com/fakhry.m_</string>
+
+    <!--  CD -->
+    <string name="cd_movie_poster">Movie Poster</string>
+    <string name="cd_movie_backdrop">Movie Backdrop</string>
+    <string name="cd_transparent_image">Transparent Image</string>
+    <string name="cd_button_image">Button Image</string>
+    <string name="cd_button_gmail">Button Gmail</string>
+    <string name="cd_button_instagram">Button Instagram</string>
+    <string name="title_movie_details">Movie Details</string>
+    <string name="title_watchlist">Watchlist</string>
+</resources>
