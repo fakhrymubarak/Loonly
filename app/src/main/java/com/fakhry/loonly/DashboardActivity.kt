@@ -1,7 +1,6 @@
 package com.fakhry.loonly
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
@@ -41,7 +40,6 @@ class DashboardActivity : AppCompatActivity() {
         navSide.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_wl_movies -> {
-                    Log.d("debugLoonly", "Item watchlist pressed")
                     navController.navigate(R.id.action_nav_movies_to_nav_watchlist_movie)
                 }
                 R.id.nav_about -> {

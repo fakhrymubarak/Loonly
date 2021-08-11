@@ -1,20 +1,16 @@
 package com.fakhry.loonly.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.R
+import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.databinding.ItemCaraouselBinding
 
-class CarouselAdapter(private val viewPager: ViewPager2) :
-    RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>() {
-
+class CarouselAdapter : RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>() {
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
 
@@ -25,7 +21,10 @@ class CarouselAdapter(private val viewPager: ViewPager2) :
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarouselAdapter.CarouselViewHolder =
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): CarouselAdapter.CarouselViewHolder =
         CarouselViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_caraousel, parent, false)
         )
@@ -33,11 +32,6 @@ class CarouselAdapter(private val viewPager: ViewPager2) :
     override fun onBindViewHolder(holder: CarouselAdapter.CarouselViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
-        if (position == listData.size - 2) {
-            viewPager.post {
-                Log.d("debugLoonly", "listData.size: " + listData.size.toString())
-            }
-        }
     }
 
     override fun getItemCount(): Int = listData.size

@@ -44,6 +44,10 @@ class MovieTopRatedFragment : Fragment() {
                 MovieTopRatedFragmentDirections.actionNavTopRatedToNavDetails(selectedData.id)
             findNavController().navigate(action)
         }
+        binding.swipe.setOnRefreshListener {
+            currentPage = 1
+            loadPage(currentPage)
+        }
         loadPage(currentPage)
     }
 
@@ -78,15 +82,15 @@ class MovieTopRatedFragment : Fragment() {
             popularsAdapter.addData(data)
         }
 
-        val gridLayoutManager = GridLayoutManager(requireContext(), 3)
+        val gridLayoutManager = GridLayoutManager(requireContext(), 2)
         binding.rvPopulars.layoutManager = gridLayoutManager
         binding.rvPopulars.adapter = popularsAdapter
 
         binding.nsv.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
             val dy = scrollY - oldScrollY
             if (dy > 0) {
-                val itemHeight = (gridLayoutManager.getChildAt(0)?.measuredHeight ?: 0) * 2
-                val rvHeight = binding.rvPopulars.measuredHeight
+                val itemHeight = gridLayoutManager.getChildAt(0)?.measuredHeight ?: 0
+                val rvHeight = binding.rvPopulars.measuredHeight / 2
                 if (scrollY > (rvHeight - itemHeight) && !isFetching) {
                     currentPage++
                     if (currentPage <= 20) loadPage(currentPage)
