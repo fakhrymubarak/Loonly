@@ -71,6 +71,10 @@
         android:id="@+id/nav_watchlist_movie"
         android:name="com.fakhry.loonly.watchlist.WatchlistMovieFragment"
         app:moduleName="watchlist"
-        android:label="fragment_watchlist_movie"
-        tools:layout="@layout/fragment_watchlist_movie" />
+        android:label="@string/menu_watch_list_movies"
+        tools:layout="@layout/fragment_watchlist_movie" >
+        <action
+            android:id="@+id/action_nav_watchlist_movie_to_nav_details"
+            app:destination="@id/nav_details" />
+    </fragment>
 </navigation>

@@ -1,7 +1,6 @@
 package com.fakhry.loonly.core.data
 
 import com.fakhry.loonly.core.data.source.local.LocalDataSource
-import com.fakhry.loonly.core.data.source.local.entity.movies.MovieWatchlistEntity
 import com.fakhry.loonly.core.data.source.remote.RemoteDataSource
 import com.fakhry.loonly.core.data.source.remote.network.ApiResponse
 import com.fakhry.loonly.core.data.source.remote.response.movie.playings.MovieResponse
@@ -142,9 +141,10 @@ class LoonlyRepository @Inject constructor(
 
 
     /*WATCHLIST SECTION*/
-    override fun getMovieWatchlist(): Flow<List<MovieWatchlistEntity>> =
+    override fun getMovieWatchlist(): Flow<List<Movie>> =
         flow {
-            emit(localDataSource.getMovieWatchlist())
+            val moviesEntity = localDataSource.getMovieWatchlist()
+            emit(DataMapper.mapWatchlistEntitiesToDomain(moviesEntity))
         }
 
     override fun getWatchlistStatus(id: Int): Flow<Boolean> =

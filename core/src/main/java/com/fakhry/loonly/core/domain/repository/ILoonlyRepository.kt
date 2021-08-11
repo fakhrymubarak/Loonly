@@ -1,7 +1,6 @@
 package com.fakhry.loonly.core.domain.repository
 
 import com.fakhry.loonly.core.data.Resource
-import com.fakhry.loonly.core.data.source.local.entity.movies.MovieWatchlistEntity
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
 import kotlinx.coroutines.flow.Flow
@@ -19,7 +18,7 @@ interface ILoonlyRepository {
     fun searchMovie(query: String, page: Int): Flow<Resource<List<Movie>>>
 
     /*WATCHLIST SECTION*/
-    fun getMovieWatchlist(): Flow<List<MovieWatchlistEntity>>
+    fun getMovieWatchlist(): Flow<List<Movie>>
     fun getWatchlistStatus(id: Int): Flow<Boolean>
     fun insertWatchlistMovie(movie: Movie)
     fun deleteWatchlistMovie(movie: Movie)

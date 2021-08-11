@@ -1,7 +1,6 @@
 package com.fakhry.loonly.core.domain.usecase
 
 import com.fakhry.loonly.core.data.Resource
-import com.fakhry.loonly.core.data.source.local.entity.movies.MovieWatchlistEntity
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
 import com.fakhry.loonly.core.domain.repository.ILoonlyRepository
@@ -37,7 +36,7 @@ class LoonlyInteractor @Inject constructor(private val mLoonlyRepository: ILoonl
         mLoonlyRepository.searchMovie(query, page)
 
     /*WATCHLIST SECTION*/
-    override fun getMovieWatchlist(): Flow<List<MovieWatchlistEntity>> =
+    override fun getMovieWatchlist(): Flow<List<Movie>> =
         mLoonlyRepository.getMovieWatchlist()
 
     override fun getWatchlistStatus(id: Int): Flow<Boolean> =

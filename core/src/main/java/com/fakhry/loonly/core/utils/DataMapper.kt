@@ -112,4 +112,17 @@ object DataMapper {
             tagline = input.tagline
         )
     }
+
+    fun mapWatchlistEntitiesToDomain(input: List<MovieWatchlistEntity>): List<Movie> =
+        input.map {
+            Movie(
+                id = it.id,
+                title = it.title,
+                overview = it.overview,
+                posterPath = it.posterPath,
+                backdropPath = it.backdropPath,
+                voteAverage = it.voteAverage
+            )
+        }
+
 }

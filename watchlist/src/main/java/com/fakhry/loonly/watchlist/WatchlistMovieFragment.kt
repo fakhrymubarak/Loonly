@@ -2,12 +2,14 @@ package com.fakhry.loonly.watchlist
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import com.fakhry.loonly.adapter.GridMovieAdapter
 import com.fakhry.loonly.di.WatchlistModuleDependencies
 import com.fakhry.loonly.watchlist.databinding.FragmentWatchlistMovieBinding
 import com.fakhry.loonly.watchlist.di.DaggerWatchlistComponent
@@ -18,10 +20,11 @@ class WatchlistMovieFragment : Fragment() {
     @Inject
     lateinit var factory: ViewModelFactory
 
-    private val movieViewModel: WatchlistMovieViewModel by viewModels {
+    private val viewModel: WatchlistMovieViewModel by viewModels {
         factory
     }
     private lateinit var binding: FragmentWatchlistMovieBinding
+    private val watchlistAdapter = GridMovieAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,16 +49,41 @@ class WatchlistMovieFragment : Fragment() {
             .inject(this)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("debugLoonly", "tested")
-
-        movieViewModel.getMovieWatchlist.observe(viewLifecycleOwner, { movies ->
-            movies.map { movie ->
-                Log.d("debugLoonly", movie.title)
-            }
-        })
+        watchlistAdapter.onItemClick = { selectedData ->
+            val action =
+                WatchlistMovieFragmentDirections.actionNavWatchlistMovieToNavDetails(selectedData.id)
+            findNavController().navigate(action)
+        }
+        setViewModel()
+        binding.swipe.setOnRefreshListener {
+            setViewModel()
+        }
     }
 
+    private fun setViewModel() {
+        binding.swipe.isRefreshing = true
+        viewModel.getMovieWatchlist.observe(viewLifecycleOwner, { movies ->
+            if (movies.isNotEmpty()) {
+                watchlistAdapter.setData(movies)
+                binding.rvWatchlist.apply {
+                    visibility = View.VISIBLE
+                    layoutManager = GridLayoutManager(requireContext(), 2)
+                    adapter = watchlistAdapter
+                }
+                binding.apply {
+                    tvEmpty.visibility = View.GONE
+                    imgEmpty.visibility = View.GONE
+                }
+            } else {
+                binding.apply {
+                    rvWatchlist.visibility = View.GONE
+                    tvEmpty.visibility = View.VISIBLE
+                    imgEmpty.visibility = View.VISIBLE
+                }
+            }
+            binding.swipe.isRefreshing = false
+        })
+    }
 }

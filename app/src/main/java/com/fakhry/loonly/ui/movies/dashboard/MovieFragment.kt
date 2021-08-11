@@ -107,7 +107,7 @@ class MovieFragment : Fragment() {
 
 
     private fun setCarouselAdapter(data: List<Movie>?) {
-        val sliderAdapter = com.fakhry.loonly.adapter.CarouselAdapter(binding.vpImageSlider)
+        val sliderAdapter = com.fakhry.loonly.adapter.CarouselAdapter()
         sliderAdapter.setData(data)
 
         sliderAdapter.onItemClick = { selectedData ->
