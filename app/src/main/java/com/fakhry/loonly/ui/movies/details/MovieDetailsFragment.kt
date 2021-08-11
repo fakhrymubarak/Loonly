@@ -187,11 +187,13 @@ class MovieDetailsFragment : Fragment() {
             similarMovieAdapter = GridMovieAdapter()
             similarMovieAdapter.setData(data)
         } else {
-            similarMovieAdapter.addData(data)
+            val insertIndex = similarMovieAdapter.listData.size
+            similarMovieAdapter.listData.addAll(insertIndex, data)
+            similarMovieAdapter.notifyItemRangeInserted(insertIndex, data.size)
         }
 
-        similarMovieAdapter.onItemClick = { selectedData ->
-            val action = MovieDetailsFragmentDirections.actionNavDetailsSelf(selectedData.id)
+        similarMovieAdapter.onItemClick = { id ->
+            val action = MovieDetailsFragmentDirections.actionNavDetailsSelf(id)
             findNavController().navigate(action)
         }
         val gridLayoutManager = GridLayoutManager(requireContext(), 2)

@@ -39,9 +39,9 @@ class MovieTopRatedFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         popularsAdapter = GridMovieAdapter()
-        popularsAdapter.onItemClick = { selectedData ->
+        popularsAdapter.onItemClick = { movieId ->
             val action =
-                MovieTopRatedFragmentDirections.actionNavTopRatedToNavDetails(selectedData.id)
+                MovieTopRatedFragmentDirections.actionNavTopRatedToNavDetails(movieId)
             findNavController().navigate(action)
         }
         binding.swipe.setOnRefreshListener {
@@ -79,7 +79,9 @@ class MovieTopRatedFragment : Fragment() {
         if (currentPage == 1) {
             popularsAdapter.setData(data)
         } else {
-            popularsAdapter.addData(data)
+            val insertIndex = popularsAdapter.listData.size
+            popularsAdapter.listData.addAll(insertIndex, data)
+            popularsAdapter.notifyItemRangeInserted(insertIndex, data.size)
         }
 
         val gridLayoutManager = GridLayoutManager(requireContext(), 2)

@@ -1,20 +1,25 @@
 package com.fakhry.loonly.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fakhry.loonly.core.BuildConfig
-import com.fakhry.loonly.R
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.databinding.ItemMovBackdropMiniBinding
 import java.util.*
 
 class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>() {
-    private var listData = ArrayList<Movie>()
-    var onItemClick: ((Movie) -> Unit)? = null
 
+    private var _binding: ItemMovBackdropMiniBinding? = null
+    private val binding get() = _binding!!
+
+    val listData = ArrayList<Movie>()
+    var onItemClick: ((Int) -> Unit)? = null
+
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return
         listData.clear()
@@ -22,16 +27,12 @@ class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>()
         notifyDataSetChanged()
     }
 
-    fun addData(newListData: List<Movie>?) {
-        if (newListData == null) return
-        listData.addAll(newListData)
-        notifyDataSetChanged()
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
+        _binding =
+            ItemMovBackdropMiniBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return GridViewHolder(binding.root)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        GridViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_mov_backdrop_mini, parent, false)
-        )
 
     override fun getItemCount() = listData.size
 
@@ -41,7 +42,6 @@ class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>()
     }
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val binding = ItemMovBackdropMiniBinding.bind(itemView)
         fun bind(data: Movie) {
             with(binding) {
                 Glide.with(itemView.context)
@@ -53,7 +53,7 @@ class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>()
 
         init {
             binding.root.setOnClickListener {
-                onItemClick?.invoke(listData[layoutPosition])
+                onItemClick?.invoke(listData[layoutPosition].id)
             }
         }
     }
