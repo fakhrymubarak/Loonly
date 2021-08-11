@@ -93,7 +93,7 @@ class MovieFragment : Fragment() {
                     is Resource.Loading -> setLoading(true)
                     is Resource.Success -> {
                         setLoading(false)
-                        setPopularsAdapter(movies.data)
+                        movies.data?.let { setPopularsAdapter(it) }
                     }
                     is Resource.Error -> {
                         setLoading(false)
@@ -146,16 +146,18 @@ class MovieFragment : Fragment() {
         binding.rvTopRated.adapter = topRatedAdapter
     }
 
-    private fun setPopularsAdapter(data: List<Movie>?) {
+    private fun setPopularsAdapter(data: List<Movie>) {
         if (popularMovieCurrentPage == 1) {
             popularsAdapter = GridMovieAdapter()
             popularsAdapter.setData(data)
         } else {
-            popularsAdapter.addData(data)
+            val insertIndex = popularsAdapter.listData.size
+            popularsAdapter.listData.addAll(insertIndex, data)
+            popularsAdapter.notifyItemRangeInserted(insertIndex, data.size)
         }
 
-        popularsAdapter.onItemClick = { selectedData ->
-            val action = MovieFragmentDirections.actionNavMoviesToNavDetails(selectedData.id)
+        popularsAdapter.onItemClick = { movieId ->
+            val action = MovieFragmentDirections.actionNavMoviesToNavDetails(movieId)
             findNavController().navigate(action)
         }
         val gridLayoutManager = GridLayoutManager(requireContext(), 2)
@@ -190,7 +192,7 @@ class MovieFragment : Fragment() {
                         is Resource.Loading -> setLoadMoreLoading(true)
                         is Resource.Success -> {
                             setLoadMoreLoading(false)
-                            setPopularsAdapter(movies.data)
+                            movies.data?.let { setPopularsAdapter(it) }
                         }
                         is Resource.Error -> {
                             setLoadMoreLoading(false)

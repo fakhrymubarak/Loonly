@@ -11,9 +11,9 @@ import com.fakhry.loonly.core.domain.model.MovieDetails
 
 object DataMapper {
     fun mapMovieResponsesToEntities(input: List<MovieResponse>): List<MovieEntity> {
-        val tourismList = ArrayList<MovieEntity>()
+        val movies = ArrayList<MovieEntity>()
         input.map {
-            val tourism = MovieEntity(
+            val movie = MovieEntity(
                 id = it.movieId,
                 title = it.title,
                 overview = it.overview,
@@ -22,9 +22,9 @@ object DataMapper {
                 voteAverage = it.voteAverage,
                 categories = listOf()
             )
-            tourismList.add(tourism)
+            movies.add(movie)
         }
-        return tourismList
+        return movies
     }
 
     /**

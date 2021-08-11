@@ -9,10 +9,7 @@ import com.fakhry.loonly.core.domain.model.MovieDetails
 import com.fakhry.loonly.core.domain.repository.ILoonlyRepository
 import com.fakhry.loonly.core.utils.AppExecutors
 import com.fakhry.loonly.core.utils.DataMapper
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.*
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -141,15 +138,18 @@ class LoonlyRepository @Inject constructor(
 
 
     /*WATCHLIST SECTION*/
-    override fun getMovieWatchlist(): Flow<List<Movie>> =
+    override fun getMovieWatchlist(): Flow<Resource<List<Movie>>> =
         flow {
-            val moviesEntity = localDataSource.getMovieWatchlist()
-            emit(DataMapper.mapWatchlistEntitiesToDomain(moviesEntity))
+            emit(Resource.Loading())
+            val data = localDataSource.getMovieWatchlist().map {
+                DataMapper.mapWatchlistEntitiesToDomain(it)
+            }
+            emitAll(data.map { Resource.Success(it) })
         }
 
     override fun getWatchlistStatus(id: Int): Flow<Boolean> =
         flow {
-            emit(localDataSource.getWatchlistStatus(id))
+            emitAll(localDataSource.getWatchlistStatus(id))
         }
 
     override fun insertWatchlistMovie(movie: Movie) {

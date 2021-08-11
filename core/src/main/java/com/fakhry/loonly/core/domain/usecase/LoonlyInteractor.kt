@@ -36,7 +36,7 @@ class LoonlyInteractor @Inject constructor(private val mLoonlyRepository: ILoonl
         mLoonlyRepository.searchMovie(query, page)
 
     /*WATCHLIST SECTION*/
-    override fun getMovieWatchlist(): Flow<List<Movie>> =
+    override fun getMovieWatchlist(): Flow<Resource<List<Movie>>> =
         mLoonlyRepository.getMovieWatchlist()
 
     override fun getWatchlistStatus(id: Int): Flow<Boolean> =

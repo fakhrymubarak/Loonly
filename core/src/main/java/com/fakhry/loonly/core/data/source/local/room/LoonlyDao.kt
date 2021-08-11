@@ -33,10 +33,10 @@ interface LoonlyDao {
 
     /* WATCHLIST */
     @Query("SELECT EXISTS(SELECT * FROM movie_watchlist_entities WHERE id = :id)")
-    suspend fun getWatchlistStatus(id: Int): Boolean
+    fun getWatchlistStatus(id: Int): Flow<Boolean>
 
     @Query("SELECT * FROM movie_watchlist_entities")
-    suspend fun getMovieWatchlist(): List<MovieWatchlistEntity>
+    fun getMovieWatchlist(): Flow<List<MovieWatchlistEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMovieWatchlist(movieWatchlist: MovieWatchlistEntity)

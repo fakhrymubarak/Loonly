@@ -33,10 +33,10 @@ class LocalDataSource @Inject constructor(private val mLoonlyDao: LoonlyDao) {
     /* TV SHOWS */
 
     /* WATCHLIST */
-    suspend fun getMovieWatchlist(): List<MovieWatchlistEntity> =
+    fun getMovieWatchlist(): Flow<List<MovieWatchlistEntity>> =
         mLoonlyDao.getMovieWatchlist()
 
-    suspend fun getWatchlistStatus(id: Int): Boolean =
+    fun getWatchlistStatus(id: Int): Flow<Boolean> =
         mLoonlyDao.getWatchlistStatus(id)
 
     fun insertMovieWatchlist(movieWatchlistEntity: MovieWatchlistEntity) {

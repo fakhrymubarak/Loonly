@@ -18,7 +18,7 @@ interface ILoonlyRepository {
     fun searchMovie(query: String, page: Int): Flow<Resource<List<Movie>>>
 
     /*WATCHLIST SECTION*/
-    fun getMovieWatchlist(): Flow<List<Movie>>
+    fun getMovieWatchlist(): Flow<Resource<List<Movie>>>
     fun getWatchlistStatus(id: Int): Flow<Boolean>
     fun insertWatchlistMovie(movie: Movie)
     fun deleteWatchlistMovie(movie: Movie)
