@@ -15,4 +15,6 @@
 
     <color name="redBrand">#FFE64C3C</color>
     <color name="redVariant">#FF802F34</color>
-</resources>
+
+    <color name="blueBrand">#FF3342AA</color>
+    </resources>
