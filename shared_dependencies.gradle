@@ -1,30 +1,59 @@
 dependencies {
+    //core
     implementation "androidx.core:core-ktx:1.6.0"
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
-    testImplementation "junit:junit:4.13.2"
-    androidTestImplementation "androidx.test.ext:junit:1.1.3"
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
-
-    //lifecycle
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     //material
     implementation "com.google.android.material:material:1.4.0"
 
     // ui
-    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
     implementation "androidx.appcompat:appcompat:1.3.1"
-    implementation "com.google.android.material:material:1.4.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshVersion"
 
     // image
     implementation "com.github.bumptech.glide:glide:$glide_version"
     implementation "de.hdodenhof:circleimageview:3.1.0"
 
-    // dagger
+    // kotlin coroutines lifecycle scopes
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+
+    // dagger hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_jetpack_version"
     kapt "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
-    kaptAndroidTest "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
+
+    // paging
+    implementation "androidx.paging:paging-runtime:3.0.1"
+
+    // local unit test
+    implementation "androidx.test:core:1.4.0"
+    testImplementation "junit:junit:4.13.2"
+//    testImplementation "org.hamcrest:hamcrest-all:1.3"
+    testImplementation "androidx.arch.core:core-testing:$archLifecycleTestVersion"
+//    testImplementation "org.roboelectric:roboelectric:4.3.1"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0"
+    testImplementation "com.google.truth:truth:1.0.1"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+//    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+//    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockitoKotlinVersion"
+
+
+    // instrumented unit test
+    androidTestImplementation "junit:junit:4.13.2"
+//    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0"
+    androidTestImplementation "androidx.arch.core:core-testing:$archLifecycleTestVersion"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+//    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+//    androidTestImplementation "androidx.test:runner:1.4.0"
+//    androidTestImplementation "androidx.test:rules:1.4.0"
+//    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
 }

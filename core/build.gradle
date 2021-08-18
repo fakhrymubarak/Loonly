@@ -44,26 +44,34 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    packagingOptions {
+        exclude 'META-INF/AL2.0'
+        exclude 'META-INF/LGPL2.1'
+    }
 }
 
 dependencies {
     // room
-    implementation "androidx.room:room-runtime:$room_version"
+    api "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    androidTestImplementation "androidx.room:room-testing:$room_version"
+
+    // kotlin extensions and coroutines support for room
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // kotlin coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
 
     // retrofit
     api "com.squareup.retrofit2:retrofit:$retrofit_version"
     api "com.squareup.retrofit2:converter-gson:$retrofit_version"
     api "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
 
-    // kotlin coroutines with room
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
-    implementation "androidx.room:room-ktx:$room_version"
-
     // by viewModels di Activity dan Fragment
-    api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     api "androidx.activity:activity-ktx:$activity_ktx_version"
     api "androidx.fragment:fragment-ktx:$fragment_ktx_version"
+
+    //testing
+    androidTestImplementation "androidx.room:room-testing:$room_version"
 }
