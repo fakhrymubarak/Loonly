@@ -124,12 +124,13 @@ class LoonlyDaoTest {
         )
 
         dao.insertMovieWatchlist(movie)
-
         val watchlistStatus = dao.getWatchlistStatus(movie.id).asLiveData().getOrAwaitValue()
+        val order = dao.getLargestOrder().asLiveData().getOrAwaitValue()
         val listWatchlistMovies = dao.getMovieWatchlist().asLiveData().getOrAwaitValue()
 
         assertThat(listWatchlistMovies).isNotEmpty()
         assertThat(watchlistStatus).isTrue()
+        assertThat(order).isEqualTo(0)
         assertThat(listWatchlistMovies).contains(movie)
     }
 
