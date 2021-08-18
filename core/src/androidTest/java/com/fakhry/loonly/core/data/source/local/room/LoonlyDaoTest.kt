@@ -1,4 +1,4 @@
-package com.fakhry.loonly.core.data.local
+package com.fakhry.loonly.core.data.source.local.room
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.asLiveData
@@ -8,9 +8,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieEntity
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieWatchlistEntity
-import com.fakhry.loonly.core.data.source.local.room.LoonlyDao
-import com.fakhry.loonly.core.data.source.local.room.LoonlyDatabase
 import com.fakhry.loonly.core.getOrAwaitValue
+import com.fakhry.loonly.core.utils.Const
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -46,9 +45,6 @@ class LoonlyDaoTest {
 
     @Test
     fun insertAndGetMoviesBasedCategories() = runBlockingTest {
-        val idNowPlaying = 0
-        val idTopRated = 1
-        val idPopular = 3
         val movies = listOf(
             MovieEntity(
                 id = 1,
@@ -57,7 +53,7 @@ class LoonlyDaoTest {
                 posterPath = "/posterPath",
                 backdropPath = "/backdropPath",
                 voteAverage = 10.0,
-                categories = listOf(idNowPlaying, idPopular)
+                categories = listOf(Const.ID_CAT_NOW_PLAYING, Const.ID_CAT_POPULAR)
             ),
             MovieEntity(
                 id = 2,
@@ -66,7 +62,7 @@ class LoonlyDaoTest {
                 posterPath = "/posterPath 2",
                 backdropPath = "/backdropPath 2",
                 voteAverage = 9.0,
-                categories = listOf(idTopRated)
+                categories = listOf(Const.ID_CAT_TOP_RATED)
             )
         )
         dao.insertMovies(movies)
@@ -89,8 +85,6 @@ class LoonlyDaoTest {
 
     @Test
     fun checkIsAddedThenUpdateMovies() = runBlockingTest {
-        val idNowPlaying = 0
-        val idPopular = 3
         val movies = listOf(
             MovieEntity(
                 id = 1,
@@ -99,7 +93,7 @@ class LoonlyDaoTest {
                 posterPath = "/posterPath",
                 backdropPath = "/backdropPath",
                 voteAverage = 10.0,
-                categories = listOf(idNowPlaying)
+                categories = listOf(Const.ID_CAT_NOW_PLAYING)
             )
         )
         dao.insertMovies(movies)
@@ -109,16 +103,10 @@ class LoonlyDaoTest {
         val isAdded = dao.isAdded(movies.first().id)
         assertThat(isAdded).isTrue()
 
-        val updatedMovie = MovieEntity(
-            id = 1,
-            title = "Movie Title",
-            overview = "Movie Overview",
-            posterPath = "/posterPath",
-            backdropPath = "/backdropPath",
-            voteAverage = 10.0,
-            categories = listOf(idNowPlaying, idPopular)
-        )
+        movies.first().categories = listOf(Const.ID_CAT_NOW_PLAYING, Const.ID_CAT_POPULAR)
+        val updatedMovie = movies.first()
         dao.updateMovie(updatedMovie)
+
         val moviePopulars = dao.getMoviePopulars().asLiveData().getOrAwaitValue()
         assertThat(moviePopulars).contains(updatedMovie)
     }

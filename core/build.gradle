@@ -18,9 +18,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 30
 
-        buildConfigField("String", "BASE_IMAGE", localProperties["BASE_IMAGE"])
         buildConfigField("String", "TMDB_API_KEY", localProperties["TMDB_API_KEY"])
-        buildConfigField("String", "BASE_API", localProperties["BASE_API"])
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }

@@ -3,6 +3,7 @@ package com.fakhry.loonly.core.data.source.local.room
 import androidx.room.*
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieEntity
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieWatchlistEntity
+import com.fakhry.loonly.core.utils.Const
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -18,18 +19,17 @@ interface LoonlyDao {
     @Update
     suspend fun updateMovie(movie: MovieEntity)
 
-    @Query("SELECT * FROM movie_entities WHERE categories LIKE '%0%' ORDER BY insert_date DESC")
-    fun getMoviePlayings(): Flow<List<MovieEntity>>
+    @Query("SELECT * FROM movie_entities WHERE categories LIKE :idCategory ORDER BY insert_date DESC")
+    fun getMoviePlayings(idCategory: String = "%${Const.ID_CAT_NOW_PLAYING}%"): Flow<List<MovieEntity>>
 
-    @Query("SELECT * FROM movie_entities WHERE categories LIKE '%1%' ORDER BY insert_date DESC")
-    fun getMovieTops(): Flow<List<MovieEntity>>
+    @Query("SELECT * FROM movie_entities WHERE categories LIKE :idCategory ORDER BY insert_date DESC")
+    fun getMovieTops(idCategory: String = "%${Const.ID_CAT_TOP_RATED}%"): Flow<List<MovieEntity>>
 
-    @Query("SELECT * FROM movie_entities WHERE categories LIKE '%3%' ORDER BY insert_date DESC")
-    fun getMoviePopulars(): Flow<List<MovieEntity>>
+    @Query("SELECT * FROM movie_entities WHERE categories LIKE :idCategory ORDER BY insert_date DESC")
+    fun getMoviePopulars(idCategory: String = "%${Const.ID_CAT_POPULAR}%"): Flow<List<MovieEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: List<MovieEntity>)
-    /* TV */
 
     /* WATCHLIST */
     @Query("SELECT EXISTS(SELECT * FROM movie_watchlist_entities WHERE id = :id)")

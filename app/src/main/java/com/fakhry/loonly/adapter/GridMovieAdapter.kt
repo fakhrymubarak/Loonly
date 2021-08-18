@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.core.domain.model.Movie
+import com.fakhry.loonly.core.utils.Const
 import com.fakhry.loonly.databinding.ItemMovBackdropMiniBinding
 import java.util.*
 
@@ -19,7 +20,6 @@ class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>()
     val listData = ArrayList<Movie>()
     var onItemClick: ((Int) -> Unit)? = null
 
-    @SuppressLint("NotifyDataSetChanged")
     fun setData(newListData: List<Movie>?) {
         if (newListData == null) return
         listData.clear()
@@ -45,7 +45,7 @@ class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>()
         fun bind(data: Movie) {
             with(binding) {
                 Glide.with(itemView.context)
-                    .load(BuildConfig.BASE_IMAGE + data.backdropPath)
+                    .load(Const.BASE_IMAGE + data.backdropPath)
                     .into(imgBackdrop)
                 tvTitle.text = data.title
             }

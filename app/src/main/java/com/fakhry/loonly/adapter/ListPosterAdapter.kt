@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.fakhry.loonly.R
 import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.core.domain.model.Movie
+import com.fakhry.loonly.core.utils.Const
 import com.fakhry.loonly.databinding.ItemMovPosterBinding
 import java.util.*
 
@@ -40,7 +41,7 @@ class ListPosterAdapter : RecyclerView.Adapter<ListPosterAdapter.ListViewHolder>
         fun bind(data: Movie) {
             with(binding) {
                 Glide.with(itemView.context)
-                    .load(BuildConfig.BASE_IMAGE + data.posterPath)
+                    .load(Const.BASE_IMAGE + data.posterPath)
                     .into(imgPoster)
             }
         }

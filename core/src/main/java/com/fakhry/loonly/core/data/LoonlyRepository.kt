@@ -8,6 +8,7 @@ import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
 import com.fakhry.loonly.core.domain.repository.ILoonlyRepository
 import com.fakhry.loonly.core.utils.AppExecutors
+import com.fakhry.loonly.core.utils.Const
 import com.fakhry.loonly.core.utils.DataMapper
 import kotlinx.coroutines.flow.*
 import java.util.*
@@ -20,11 +21,6 @@ class LoonlyRepository @Inject constructor(
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : ILoonlyRepository {
-    companion object {
-        private const val NOW_PLAYING = 0
-        private const val TOP_RATED = 1
-        private const val POPULAR = 3
-    }
 
     /*MOVIE SECTION*/
     override fun getMoviePlayings(): Flow<Resource<List<Movie>>> =
@@ -39,7 +35,7 @@ class LoonlyRepository @Inject constructor(
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
-                localDataSource.insertMoviePlayings(movieList, NOW_PLAYING)
+                localDataSource.insertMoviePlayings(movieList, Const.ID_CAT_NOW_PLAYING)
             }
         }.asFlow()
 
@@ -56,7 +52,7 @@ class LoonlyRepository @Inject constructor(
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
-                localDataSource.insertMoviePlayings(movieList, TOP_RATED)
+                localDataSource.insertMoviePlayings(movieList, Const.ID_CAT_TOP_RATED)
             }
         }.asFlow()
 
@@ -84,7 +80,7 @@ class LoonlyRepository @Inject constructor(
 
             override suspend fun saveCallResult(data: List<MovieResponse>) {
                 val movieList = DataMapper.mapMovieResponsesToEntities(data)
-                localDataSource.insertMoviePlayings(movieList, POPULAR)
+                localDataSource.insertMoviePlayings(movieList, Const.ID_CAT_POPULAR)
             }
         }.asFlow()
 

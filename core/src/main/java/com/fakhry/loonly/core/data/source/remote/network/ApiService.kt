@@ -9,7 +9,7 @@ import retrofit2.http.Query
 
 interface ApiService {
     companion object {
-        const val API_KEY = BuildConfig.TMDB_API_KEY
+        private const val API_KEY = BuildConfig.TMDB_API_KEY
     }
 
     /* Get Now Playing Movies  */

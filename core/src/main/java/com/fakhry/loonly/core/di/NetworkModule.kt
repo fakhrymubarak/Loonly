@@ -2,6 +2,7 @@ package com.fakhry.loonly.core.di
 
 import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.core.data.source.remote.network.ApiService
+import com.fakhry.loonly.core.utils.Const
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +31,7 @@ class NetworkModule {
     @Provides
     fun provideApiService(client: OkHttpClient): ApiService {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_API)
+            .baseUrl(Const.BASE_API)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

@@ -15,10 +15,10 @@ import com.bumptech.glide.Glide
 import com.fakhry.loonly.DashboardActivity
 import com.fakhry.loonly.R
 import com.fakhry.loonly.adapter.GridMovieAdapter
-import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.core.data.Resource
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
+import com.fakhry.loonly.core.utils.Const
 import com.fakhry.loonly.databinding.FragmentMovieDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.floor
@@ -54,8 +54,8 @@ class MovieDetailsFragment : Fragment() {
         val movieId = args.movieId
 
         getMovieDetails(movieId)
-        movieDetailsViewModel.getWatchlistStatus(movieId).observe(viewLifecycleOwner, {
-            isWatchlist = it
+        movieDetailsViewModel.getWatchlistStatus(movieId).observe(viewLifecycleOwner, { state ->
+            isWatchlist = state
             setWatchlistButton(isWatchlist)
         })
 
@@ -93,10 +93,10 @@ class MovieDetailsFragment : Fragment() {
         (activity as DashboardActivity).supportActionBar?.title = movie.title
         with(binding) {
             Glide.with(this@MovieDetailsFragment)
-                .load(BuildConfig.BASE_IMAGE + movie.backdropPath)
+                .load(Const.BASE_IMAGE + movie.backdropPath)
                 .into(ivBackdrop)
             Glide.with(this@MovieDetailsFragment)
-                .load(BuildConfig.BASE_IMAGE + movie.posterPath)
+                .load(Const.BASE_IMAGE + movie.posterPath)
                 .into(ivPosterDetails)
 
             tvTitleDetails.text = movie.title
