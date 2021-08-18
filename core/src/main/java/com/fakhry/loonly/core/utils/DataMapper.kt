@@ -54,9 +54,10 @@ object DataMapper {
      * @param input List of `Item` (domain's model)
      * @return List of `ItemEntity` (room's model)
      * */
-    fun mapMovieDomainToEntity(input: Movie) =
+    fun mapMovieDomainToEntity(input: Movie, order: Int) =
         MovieWatchlistEntity(
             id = input.id,
+            order = order,
             title = input.title,
             overview = input.overview,
             posterPath = input.posterPath,

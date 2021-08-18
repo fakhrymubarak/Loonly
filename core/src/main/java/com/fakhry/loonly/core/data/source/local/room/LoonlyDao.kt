@@ -35,7 +35,10 @@ interface LoonlyDao {
     @Query("SELECT EXISTS(SELECT * FROM movie_watchlist_entities WHERE id = :id)")
     fun getWatchlistStatus(id: Int): Flow<Boolean>
 
-    @Query("SELECT * FROM movie_watchlist_entities")
+    @Query("SELECT MAX(`order`) FROM movie_watchlist_entities")
+    fun getLargestOrder(): Flow<Int>
+
+    @Query("SELECT * FROM movie_watchlist_entities ORDER BY `order`")
     fun getMovieWatchlist(): Flow<List<MovieWatchlistEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

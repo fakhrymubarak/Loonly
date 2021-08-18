@@ -13,6 +13,9 @@ data class MovieWatchlistEntity(
     @ColumnInfo(name = "id")
     val id: Int,
 
+    @ColumnInfo(name = "order")
+    var order: Int = 0,
+
     @ColumnInfo(name = "title")
     val title: String = "",
 

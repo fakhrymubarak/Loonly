@@ -18,8 +18,9 @@ interface LoonlyUseCase {
     fun searchMovie(query: String, page: Int): Flow<Resource<List<Movie>>>
 
     /*WATCHLIST SECTION*/
+    fun getWatchlistStatus(id: Int): Flow<Boolean>
+    fun getWatchlistLargestOrder(): Flow<Int>
     fun getMovieWatchlist(): Flow<Resource<List<Movie>>>
-    fun getWatchlistStatus(id : Int): Flow<Boolean>
-    fun insertWatchlistMovie(movie: Movie)
-    fun delWatchlistMovie(movie: Movie)
+    fun insertWatchlistMovie(movie: Movie, order: Int)
+    fun delWatchlistMovie(movie: Movie, order: Int)
 }

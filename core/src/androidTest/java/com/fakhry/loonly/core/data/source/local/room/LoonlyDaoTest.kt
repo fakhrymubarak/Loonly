@@ -115,6 +115,7 @@ class LoonlyDaoTest {
     fun insertAndCheckStatusThenGetWatchlist() = runBlockingTest {
         val movie = MovieWatchlistEntity(
             id = 1,
+            order = 0,
             title = "Movie Title",
             overview = "Movie Overview",
             posterPath = "/posterPath",
@@ -136,6 +137,7 @@ class LoonlyDaoTest {
     fun deleteWatchlist() = runBlockingTest {
         val movie = MovieWatchlistEntity(
             id = 1,
+            order = 0,
             title = "Movie Title",
             overview = "Movie Overview",
             posterPath = "/posterPath",

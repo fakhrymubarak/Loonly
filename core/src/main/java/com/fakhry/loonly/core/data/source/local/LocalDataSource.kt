@@ -39,6 +39,9 @@ class LocalDataSource @Inject constructor(private val mLoonlyDao: LoonlyDao) {
     fun getWatchlistStatus(id: Int): Flow<Boolean> =
         mLoonlyDao.getWatchlistStatus(id)
 
+    fun getWatchlistLargestOrder(): Flow<Int> =
+        mLoonlyDao.getLargestOrder()
+
     fun insertMovieWatchlist(movieWatchlistEntity: MovieWatchlistEntity) {
         mLoonlyDao.insertMovieWatchlist(movieWatchlistEntity)
     }

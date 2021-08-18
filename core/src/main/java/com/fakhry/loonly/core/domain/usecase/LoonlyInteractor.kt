@@ -42,10 +42,13 @@ class LoonlyInteractor @Inject constructor(private val mLoonlyRepository: ILoonl
     override fun getWatchlistStatus(id: Int): Flow<Boolean> =
         mLoonlyRepository.getWatchlistStatus(id)
 
-    override fun insertWatchlistMovie(movie: Movie) =
-        mLoonlyRepository.insertWatchlistMovie(movie)
+    override fun getWatchlistLargestOrder(): Flow<Int> =
+        mLoonlyRepository.getWatchlistLargestOrder()
 
-    override fun delWatchlistMovie(movie: Movie) =
-        mLoonlyRepository.deleteWatchlistMovie(movie)
+    override fun insertWatchlistMovie(movie: Movie, order: Int) =
+        mLoonlyRepository.insertWatchlistMovie(movie, order)
+
+    override fun delWatchlistMovie(movie: Movie, order: Int) =
+        mLoonlyRepository.deleteWatchlistMovie(movie, order)
 
 }

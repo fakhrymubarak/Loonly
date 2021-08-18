@@ -148,13 +148,19 @@ class LoonlyRepository @Inject constructor(
             emitAll(localDataSource.getWatchlistStatus(id))
         }
 
-    override fun insertWatchlistMovie(movie: Movie) {
-        val movieEntity = DataMapper.mapMovieDomainToEntity(movie)
+
+    override fun getWatchlistLargestOrder(): Flow<Int> =
+        flow {
+            emitAll(localDataSource.getWatchlistLargestOrder())
+        }
+
+    override fun insertWatchlistMovie(movie: Movie, order: Int) {
+        val movieEntity = DataMapper.mapMovieDomainToEntity(movie, order)
         appExecutors.diskIO().execute { localDataSource.insertMovieWatchlist(movieEntity) }
     }
 
-    override fun deleteWatchlistMovie(movie: Movie) {
-        val movieEntity = DataMapper.mapMovieDomainToEntity(movie)
+    override fun deleteWatchlistMovie(movie: Movie, order: Int) {
+        val movieEntity = DataMapper.mapMovieDomainToEntity(movie, order)
         appExecutors.diskIO().execute { localDataSource.delMovieWatchlist(movieEntity) }
     }
 

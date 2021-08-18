@@ -33,6 +33,7 @@ class MovieDetailsFragment : Fragment() {
     private var similarMovieCurrentPage: Int = 1
     private var isFetching = false
     private lateinit var movieDetails: MovieDetails
+    private var watchlistOrder by Delegates.notNull<Int>()
     private var isWatchlist by Delegates.notNull<Boolean>()
 
 
@@ -59,6 +60,9 @@ class MovieDetailsFragment : Fragment() {
             setWatchlistButton(isWatchlist)
         })
 
+        movieDetailsViewModel.watchlistLatestOrder().observe(viewLifecycleOwner, { latestOrder ->
+            watchlistOrder = (latestOrder ?: -1) + 1
+        })
 
         binding.apply {
             swipe.setOnRefreshListener {
@@ -125,6 +129,7 @@ class MovieDetailsFragment : Fragment() {
             getMovieSimilar(movie.id, false)
 
             btnAddWatchlist.setOnClickListener {
+
                 isWatchlist = !isWatchlist
                 if (isWatchlist) {
                     Toast.makeText(requireContext(), "Added to watchlist.", Toast.LENGTH_SHORT)
@@ -133,9 +138,12 @@ class MovieDetailsFragment : Fragment() {
                     Toast.makeText(requireContext(), "Removed from watchlist.", Toast.LENGTH_SHORT)
                         .show()
                 }
-                addMovieToWatchList(isWatchlist)
+                addMovieToWatchList(isWatchlist, watchlistOrder)
                 setWatchlistButton(isWatchlist)
+
+
             }
+
             btnShare.setOnClickListener {
                 val sendIntent: Intent = Intent().apply {
                     action = Intent.ACTION_SEND
@@ -222,7 +230,7 @@ class MovieDetailsFragment : Fragment() {
         }
     }
 
-    private fun addMovieToWatchList(state: Boolean) {
+    private fun addMovieToWatchList(state: Boolean, order: Int) {
         val movie = Movie(
             id = movieDetails.id,
             title = movieDetails.title,
@@ -232,9 +240,9 @@ class MovieDetailsFragment : Fragment() {
             voteAverage = movieDetails.voteAverage
         )
         if (state) {
-            movieDetailsViewModel.insertWatchlistMovie(movie)
+            movieDetailsViewModel.insertWatchlistMovie(movie, order)
         } else {
-            movieDetailsViewModel.delWatchlistMovie(movie)
+            movieDetailsViewModel.delWatchlistMovie(movie, order)
         }
     }
 

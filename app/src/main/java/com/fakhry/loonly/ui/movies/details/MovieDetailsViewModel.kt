@@ -13,6 +13,7 @@ class MovieDetailsViewModel @Inject constructor(private val loonlyUseCase: Loonl
     fun getMovieSimilar(id: Int, page: Int) = loonlyUseCase.getMovieSimilar(id, page).asLiveData()
 
     fun getWatchlistStatus(id: Int) = loonlyUseCase.getWatchlistStatus(id).asLiveData()
-    fun insertWatchlistMovie(movie: Movie) = loonlyUseCase.insertWatchlistMovie(movie)
-    fun delWatchlistMovie(movie: Movie) = loonlyUseCase.delWatchlistMovie(movie)
+    fun watchlistLatestOrder() = loonlyUseCase.getWatchlistLargestOrder().asLiveData()
+    fun insertWatchlistMovie(movie: Movie, order: Int) = loonlyUseCase.insertWatchlistMovie(movie, order)
+    fun delWatchlistMovie(movie: Movie, order: Int) = loonlyUseCase.delWatchlistMovie(movie, order)
 }
