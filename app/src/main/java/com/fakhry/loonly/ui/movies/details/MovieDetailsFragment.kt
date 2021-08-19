@@ -18,7 +18,7 @@ import com.fakhry.loonly.adapter.GridMovieAdapter
 import com.fakhry.loonly.core.data.Resource
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
-import com.fakhry.loonly.core.utils.Const
+import com.fakhry.loonly.core.const.Const
 import com.fakhry.loonly.databinding.FragmentMovieDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.floor

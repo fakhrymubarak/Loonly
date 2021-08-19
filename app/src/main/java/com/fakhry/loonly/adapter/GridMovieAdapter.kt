@@ -1,14 +1,12 @@
 package com.fakhry.loonly.adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.core.domain.model.Movie
-import com.fakhry.loonly.core.utils.Const
+import com.fakhry.loonly.core.const.Const
 import com.fakhry.loonly.databinding.ItemMovBackdropMiniBinding
 import java.util.*
 

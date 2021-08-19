@@ -1,4 +1,4 @@
-package com.fakhry.loonly.core.utils
+package com.fakhry.loonly.core.const
 
 object Const {
     const val BASE_API = "https://api.themoviedb.org/3/"

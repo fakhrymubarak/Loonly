@@ -8,7 +8,7 @@ import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
 import com.fakhry.loonly.core.domain.repository.ILoonlyRepository
 import com.fakhry.loonly.core.utils.AppExecutors
-import com.fakhry.loonly.core.utils.Const
+import com.fakhry.loonly.core.const.Const
 import com.fakhry.loonly.core.utils.DataMapper
 import kotlinx.coroutines.flow.*
 import java.util.*

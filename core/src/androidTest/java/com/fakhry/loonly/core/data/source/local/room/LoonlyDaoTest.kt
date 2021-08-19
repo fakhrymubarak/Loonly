@@ -9,7 +9,7 @@ import androidx.test.filters.SmallTest
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieEntity
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieWatchlistEntity
 import com.fakhry.loonly.core.getOrAwaitValue
-import com.fakhry.loonly.core.utils.Const
+import com.fakhry.loonly.core.const.Const
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

@@ -2,7 +2,7 @@ package com.fakhry.loonly.core.di
 
 import com.fakhry.loonly.core.BuildConfig
 import com.fakhry.loonly.core.data.source.remote.network.ApiService
-import com.fakhry.loonly.core.utils.Const
+import com.fakhry.loonly.core.const.Const
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

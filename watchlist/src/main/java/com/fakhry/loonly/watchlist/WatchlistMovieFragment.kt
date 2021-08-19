@@ -2,7 +2,6 @@ package com.fakhry.loonly.watchlist
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,7 +63,6 @@ class WatchlistMovieFragment : Fragment() {
         }
     }
 
-
     private fun setViewModel() {
         binding.swipe.isRefreshing = true
         viewModel.getMovieWatchlist.observe(viewLifecycleOwner, { movies ->
@@ -75,9 +73,6 @@ class WatchlistMovieFragment : Fragment() {
                         setLoading(false)
                         movies.data?.let {
                             if (it.isNotEmpty()) {
-                                it.forEach {
-                                    Log.d("debugLoonly", it.title)
-                                }
                                 watchlistAdapter.setData(it)
                                 binding.rvWatchlist.apply {
                                     visibility = View.VISIBLE

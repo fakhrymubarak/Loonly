@@ -3,7 +3,7 @@ package com.fakhry.loonly.core.data.source.local.room
 import androidx.room.*
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieEntity
 import com.fakhry.loonly.core.data.source.local.entity.movies.MovieWatchlistEntity
-import com.fakhry.loonly.core.utils.Const
+import com.fakhry.loonly.core.const.Const
 import kotlinx.coroutines.flow.Flow
 
 @Dao
