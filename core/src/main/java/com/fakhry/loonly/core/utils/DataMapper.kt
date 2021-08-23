@@ -54,17 +54,6 @@ object DataMapper {
      * @param input List of `Item` (domain's model)
      * @return List of `ItemEntity` (room's model)
      * */
-    fun mapMovieDomainToEntity(input: Movie, order: Int) =
-        MovieWatchlistEntity(
-            id = input.id,
-            order = order,
-            title = input.title,
-            overview = input.overview,
-            posterPath = input.posterPath,
-            backdropPath = input.backdropPath,
-            voteAverage = input.voteAverage
-        )
-
     fun mapMovieResponsesToDomains(input: List<MovieResponse>): List<Movie> =
         input.map {
             Movie(
@@ -77,7 +66,6 @@ object DataMapper {
                 insertDate = System.currentTimeMillis()
             )
         }
-
 
     fun mapMovieDetailResponseToDomain(input: MovieDetailsResponse): MovieDetails {
         val listGenre = input.genres.map {
@@ -126,4 +114,14 @@ object DataMapper {
             )
         }
 
+    fun mapMovieDomainToEntity(input: Movie, order: Int) =
+        MovieWatchlistEntity(
+            id = input.id,
+            order = order,
+            title = input.title,
+            overview = input.overview,
+            posterPath = input.posterPath,
+            backdropPath = input.backdropPath,
+            voteAverage = input.voteAverage
+        )
 }
