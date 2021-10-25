@@ -1,5 +1,6 @@
 package com.fakhry.loonly.core.data
 
+import com.fakhry.loonly.core.const.Const
 import com.fakhry.loonly.core.data.source.local.LocalDataSource
 import com.fakhry.loonly.core.data.source.remote.RemoteDataSource
 import com.fakhry.loonly.core.data.source.remote.network.ApiResponse
@@ -8,7 +9,6 @@ import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
 import com.fakhry.loonly.core.domain.repository.ILoonlyRepository
 import com.fakhry.loonly.core.utils.AppExecutors
-import com.fakhry.loonly.core.const.Const
 import com.fakhry.loonly.core.utils.DataMapper
 import kotlinx.coroutines.flow.*
 import java.util.*
@@ -64,7 +64,7 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error<List<Movie>>(apiResponse.errorMessage))
+                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
             }
         }
 
@@ -92,7 +92,7 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error<List<Movie>>(apiResponse.errorMessage))
+                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
             }
         }
 
@@ -104,7 +104,7 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieDetailResponseToDomain(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error<MovieDetails>(apiResponse.errorMessage))
+                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
             }
         }
 
@@ -116,7 +116,7 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error<List<Movie>>(apiResponse.errorMessage))
+                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
             }
         }
 
@@ -128,7 +128,7 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error<List<Movie>>(apiResponse.errorMessage))
+                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
             }
         }
 
