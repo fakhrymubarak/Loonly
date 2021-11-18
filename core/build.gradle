@@ -11,12 +11,12 @@ def localProperties = new Properties()
 localProperties.load(new FileInputStream(localPropertiesFile))
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
 
         buildConfigField("String", "TMDB_API_KEY", localProperties["TMDB_API_KEY"])
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

@@ -29,12 +29,10 @@
 
     <style name="Theme.Loonly.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-
     <!--  Splash Screen Theme-->
     <style name="SplashTheme" parent="Theme.Loonly.NoActionBar">
         <item name="android:windowBackground">@drawable/layer_splash_background</item>
     </style>
-
 
     <!--  TEXT STYLES  -->
     <style name="TextStyles" parent="Widget.AppCompat.TextView" />

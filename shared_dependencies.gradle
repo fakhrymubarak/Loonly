@@ -1,14 +1,14 @@
 dependencies {
     //core
-    implementation "androidx.core:core-ktx:1.6.0"
+    implementation "androidx.core:core-ktx:1.7.0"
     implementation "androidx.legacy:legacy-support-v4:1.0.0"
 
     //material
     implementation "com.google.android.material:material:1.4.0"
 
     // ui
-    implementation "androidx.appcompat:appcompat:1.3.1"
-    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
+    implementation "androidx.appcompat:appcompat:1.4.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.2"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshVersion"
 
     // image
@@ -27,7 +27,10 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
 
     // paging
-    implementation "androidx.paging:paging-runtime:3.0.1"
+    implementation "androidx.paging:paging-runtime:3.1.0"
+
+    // google play
+    implementation "com.google.android.play:core:1.10.2"
 
     // local unit test
     implementation "androidx.test:core:1.4.0"

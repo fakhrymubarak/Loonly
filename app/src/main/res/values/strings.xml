@@ -5,6 +5,9 @@
     <string name="author_name">A. Muh. Fakhry Mubarak</string>
     <string name="author_email">fakhrymubarak@gmail.com</string>
 
+    <!-- APP BAR -->
+    <string name="search_movies">Search Movies</string>
+
     <!--  BOTTOM NAVBAR  -->
     <string name="title_movies">Movies</string>
     <string name="title_tv">Tv Shows</string>
@@ -14,6 +17,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="menu_watch_list_movies">Watchlist Movies</string>
+    <string name="menu_search_movies">Search Movies</string>
     <string name="menu_about">About Developer</string>
 
     <!-- MOVIE FRAGMENT -->
@@ -45,4 +49,6 @@
     <string name="cd_button_instagram">Button Instagram</string>
     <string name="title_movie_details">Movie Details</string>
     <string name="title_watchlist">Watchlist</string>
+    <string name="title_search">Search</string>
+    <string name="title_favorite">favorite</string>
 </resources>

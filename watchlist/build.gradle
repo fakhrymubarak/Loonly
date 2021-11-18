@@ -6,12 +6,11 @@ plugins {
 apply from: '../shared_dependencies.gradle'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 23
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
