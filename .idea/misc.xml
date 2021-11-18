@@ -15,7 +15,10 @@
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/activity_dashboard.xml" value="0.1078125" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/activity_splash_scereen.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/app_bar_dashboard.xml" value="0.22" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_about.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_movie_details.xml" value="0.20989583333333334" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_settings.xml" value="0.33" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_top_rated.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_caraousel.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_backdrop_mini.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_poster.xml" value="0.20989583333333334" />
@@ -28,7 +31,7 @@
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/favorite/src/main/res/drawable/ic_empty.xml" value="0.12395833333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/favorite/src/main/res/layout/fragment_watchlist_movie.xml" value="0.1078125" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/search/src/main/res/layout/activity_search.xml" value="0.20989583333333334" />
-        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/search/src/main/res/layout/fragment_search_movie.xml" value="0.28005559416261294" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/search/src/main/res/layout/fragment_search_movie.xml" value="0.33" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/watchlist/src/main/res/drawable/ic_empty.xml" value="0.22604166666666667" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/watchlist/src/main/res/layout/fragment_watchlist_movie.xml" value="0.20989583333333334" />
       </map>

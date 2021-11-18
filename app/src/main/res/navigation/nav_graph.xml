@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_nav_movies_to_nav_search_movie"
             app:destination="@id/nav_search_movie" />
+        <action
+            android:id="@+id/action_nav_movies_to_nav_setting"
+            app:destination="@id/nav_setting" />
     </fragment>
 
     <!--  Top Rated  -->
@@ -113,6 +116,15 @@
             app:destination="@id/nav_details" />
         <action
             android:id="@+id/action_nav_search_movie_self"
+            app:destination="@id/nav_search_movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.fakhry.loonly.ui.settings.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_nav_setting_to_nav_search_movie"
             app:destination="@id/nav_search_movie" />
     </fragment>
 </navigation>
