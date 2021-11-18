@@ -1,13 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Loonly" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Loonly" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primaryBrand</item>
-        <item name="colorPrimaryVariant">@color/primaryVariant</item>
+        <item name="colorPrimary">@color/bluePrimary</item>
+        <item name="colorPrimaryVariant">@color/blueVariant</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/redBrand</item>
-        <item name="colorSecondaryVariant">@color/redVariant</item>
+        <item name="colorSecondary">@color/yellowPrimary</item>
+        <item name="colorSecondaryVariant">@color/YellowVariant</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -29,6 +29,11 @@
 
     <style name="Theme.Loonly.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!--  Side Nav  -->
+    <style name="SideNav" parent="Widget.Design.NavigationView">
+        <item name="android:background">@color/white</item>
+    </style>
+
     <!--  Splash Screen Theme-->
     <style name="SplashTheme" parent="Theme.Loonly.NoActionBar">
         <item name="android:windowBackground">@drawable/layer_splash_background</item>
@@ -41,31 +46,49 @@
         <item name="android:fontFamily">@font/raleway</item>
     </style>
 
+
     <!-- Gray -->
     <style name="TextStyles.Raleway.Gray" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/gray</item>
+        <item name="android:textColor">@color/grayDark</item>
     </style>
 
-    <!-- White -->
+    <!--  Gray Small  -->
+    <style name="TextStyles.Raleway.Gray.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <!-- Dark -->
+    <style name="TextStyles.Raleway.Dark" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--  Dark Large  -->
+    <style name="TextStyles.Raleway.Dark.Large">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/raleway_bold</item>
+    </style>
+
+    <!--  Dark Regular  -->
+    <style name="TextStyles.Raleway.Dark.Regular">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <!-- Light -->
     <style name="TextStyles.Raleway.Light" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <!--  Large  -->
+    <!--  Light Large  -->
     <style name="TextStyles.Raleway.Light.Large">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@font/raleway_bold</item>
     </style>
 
-    <!--  Regular  -->
-
+    <!--  Light Regular  -->
     <style name="TextStyles.Raleway.Light.Regular">
         <item name="android:textSize">14sp</item>
-    </style>
-
-    <!--  Small  -->
-    <style name="TextStyles.Raleway.Gray.Small">
-        <item name="android:textSize">12sp</item>
     </style>
 
 
@@ -79,13 +102,14 @@
 
     <style name="Button.Transparent">
         <item name="android:background">@null</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="Button.TextBold">
-        <item name="android:textSize">14sp</item>
-        <item name="android:paddingStart">24dp</item>
-        <item name="android:paddingEnd">24dp</item>
+    <style name="Button.Transparent.Watchlist">
+        <item name="android:drawableStart">@drawable/ic_add_dark</item>
     </style>
 
+    <style name="Button.Transparent.Share">
+        <item name="android:drawableStart">@drawable/ic_share_dark</item>
+    </style>
 </resources>

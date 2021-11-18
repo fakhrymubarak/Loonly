@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:id="@+id/swipe"
     android:layout_height="match_parent"
-    android:background="@color/primaryBrand"
     tools:context=".ui.movies.dashboard.MovieFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -50,7 +49,7 @@
 
             <TextView
                 android:id="@+id/tv_loading"
-                style="@style/TextStyles.Raleway.Light.Regular"
+                style="@style/TextStyles.Raleway.Dark.Regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_horizontal_section"

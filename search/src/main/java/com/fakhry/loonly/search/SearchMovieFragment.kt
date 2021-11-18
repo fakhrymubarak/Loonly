@@ -28,6 +28,7 @@ class SearchMovieFragment : Fragment() {
     }
     private lateinit var binding: FragmentSearchMovieBinding
     private val searchMovieAdapter = GridMovieAdapter()
+    private var currentQuery = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,18 +62,21 @@ class SearchMovieFragment : Fragment() {
         }
         setSearchView()
         binding.swipe.setOnRefreshListener {
-            setViewModel("")
+            setViewModel(currentQuery)
         }
     }
 
     private fun setSearchView() {
+        binding.svSearchMovie.onActionViewExpanded()
         binding.svSearchMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
+                searchMovieAdapter.setData(listOf())
                 setViewModel(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
+                currentQuery = newText
                 return false
             }
         })

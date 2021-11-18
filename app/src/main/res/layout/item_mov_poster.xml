@@ -11,7 +11,7 @@
         android:layout_width="@dimen/poster_width"
         android:layout_height="0dp"
         android:foreground="?android:attr/selectableItemBackgroundBorderless"
-        app:cardBackgroundColor="@color/transparent100"
+        app:cardBackgroundColor="@color/transparent"
         app:cardCornerRadius="@dimen/corner_radius"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="H,24:36"

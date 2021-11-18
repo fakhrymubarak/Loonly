@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:id="@+id/swipe"
     android:layout_height="match_parent"
-    android:background="@color/primaryBrand"
     tools:context=".SearchMovieFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,6 +20,7 @@
             android:layout_marginEnd="16dp"
             android:iconifiedByDefault="false"
             android:orientation="horizontal"
+
             android:queryHint="Search Movies"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +41,7 @@
             app:layout_constraintTop_toBottomOf="@+id/sv_search_movie"
             app:spanCount="2"
             tools:itemCount="10"
+            android:paddingBottom="200dp"
             tools:listitem="@layout/item_mov_backdrop_mini" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
