@@ -19,6 +19,7 @@
     <string name="menu_watch_list_movies">Watchlist Movies</string>
     <string name="menu_search_movies">Search Movies</string>
     <string name="menu_about">About Developer</string>
+    <string name="menu_setting">Settings</string>
 
     <!-- MOVIE FRAGMENT -->
     <string name="topRated">Top Rated All Times</string>
@@ -51,4 +52,5 @@
     <string name="title_watchlist">Watchlist</string>
     <string name="title_search">Search</string>
     <string name="title_favorite">favorite</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
 </resources>

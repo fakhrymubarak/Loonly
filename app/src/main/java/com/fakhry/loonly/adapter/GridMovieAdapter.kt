@@ -22,7 +22,6 @@ class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>()
         if (newListData == null) return
         listData.clear()
         listData.addAll(newListData)
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridViewHolder {
