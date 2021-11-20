@@ -66,6 +66,8 @@ class LoonlyRepository @Inject constructor(
                     emit(Resource.Success(data))
                 }
                 is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Success(listOf()))
+
             }
         }
 
@@ -94,6 +96,7 @@ class LoonlyRepository @Inject constructor(
                     emit(Resource.Success(data))
                 }
                 is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Success(listOf()))
             }
         }
 
@@ -106,6 +109,7 @@ class LoonlyRepository @Inject constructor(
                     emit(Resource.Success(data))
                 }
                 is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Error(message = "Movies not Found"))
             }
         }
 
@@ -118,6 +122,7 @@ class LoonlyRepository @Inject constructor(
                     emit(Resource.Success(data))
                 }
                 is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Success(listOf()))
             }
         }
 
@@ -130,6 +135,7 @@ class LoonlyRepository @Inject constructor(
                     emit(Resource.Success(data))
                 }
                 is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Empty -> emit(Resource.Success(listOf()))
             }
         }
 
