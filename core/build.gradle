@@ -6,9 +6,9 @@ plugins {
 }
 apply from: '../shared_dependencies.gradle'
 
-def localPropertiesFile = rootProject.file("local.properties")
-def localProperties = new Properties()
-localProperties.load(new FileInputStream(localPropertiesFile))
+//def localPropertiesFile = rootProject.file("local.properties")
+//def localProperties = new Properties()
+//localProperties.load(new FileInputStream(localPropertiesFile))
 
 android {
     compileSdkVersion 31
@@ -18,7 +18,7 @@ android {
         minSdkVersion 23
         targetSdkVersion 31
 
-        buildConfigField("String", "TMDB_API_KEY", localProperties["TMDB_API_KEY"])
+        buildConfigField("String", "TMDB_API_KEY", '"613d0b39cd7106ce0d332bbc4000cb24"')
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
