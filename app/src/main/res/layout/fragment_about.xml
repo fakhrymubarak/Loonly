@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryBrand"
     tools:context=".ui.about.AboutFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -27,7 +26,7 @@
 
     <TextView
         android:id="@+id/tv_author_name"
-        style="@style/TextStyles.Raleway.Light.Large"
+        style="@style/TextStyles.Raleway.Dark.Large"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/author_name"
@@ -38,7 +37,7 @@
 
     <TextView
         android:id="@+id/tv_author_email"
-        style="@style/TextStyles.Raleway.Light.Regular"
+        style="@style/TextStyles.Raleway.Dark.Regular"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/author_email"

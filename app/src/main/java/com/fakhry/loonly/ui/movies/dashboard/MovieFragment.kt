@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.fakhry.loonly.R
+import com.fakhry.loonly.adapter.CarouselAdapter
 import com.fakhry.loonly.adapter.GridMovieAdapter
 import com.fakhry.loonly.adapter.ListPosterAdapter
 import com.fakhry.loonly.core.data.Resource
@@ -107,7 +108,7 @@ class MovieFragment : Fragment() {
 
 
     private fun setCarouselAdapter(data: List<Movie>?) {
-        val sliderAdapter = com.fakhry.loonly.adapter.CarouselAdapter()
+        val sliderAdapter = CarouselAdapter()
         sliderAdapter.setData(data)
 
         sliderAdapter.onItemClick = { selectedData ->

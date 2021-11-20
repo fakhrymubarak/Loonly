@@ -49,9 +49,9 @@ interface ApiService {
     ): ListMovieResponse
 
     /* Search Movie */
-    @GET("movie/{id}/similar?")
+    @GET("search/movie?")
     suspend fun searchMovie(
-        @Path("query") query: String,
+        @Query("query") query: String,
         @Query("page") page: Int,
         @Query("api_key") apiKey: String = API_KEY
     ): ListMovieResponse

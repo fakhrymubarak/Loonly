@@ -7,13 +7,13 @@ plugins {
 }
 apply from: '../shared_dependencies.gradle'
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.fakhry.loonly"
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -37,7 +37,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    dynamicFeatures = [':watchlist']
+    dynamicFeatures = [':search', ':watchlist']
 }
 
 dependencies {
@@ -48,4 +48,6 @@ dependencies {
     api "androidx.navigation:navigation-ui-ktx:$nav_version"
     api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
+    // preference
+    implementation 'androidx.preference:preference-ktx:1.1.1'
 }

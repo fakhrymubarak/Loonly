@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fakhry.loonly.R
-import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.const.Const
+import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.databinding.ItemMovPosterBinding
 import java.util.*
 
@@ -20,7 +20,6 @@ class ListPosterAdapter : RecyclerView.Adapter<ListPosterAdapter.ListViewHolder>
         if (newListData == null) return
         listData.clear()
         listData.addAll(newListData)
-        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =

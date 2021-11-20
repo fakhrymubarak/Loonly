@@ -1,6 +1,9 @@
 package com.fakhry.loonly
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
@@ -45,6 +48,9 @@ class DashboardActivity : AppCompatActivity() {
                 R.id.nav_about -> {
                     navController.navigate(R.id.action_nav_movies_to_nav_about)
                 }
+                R.id.nav_settings -> {
+                    navController.navigate(R.id.action_nav_movies_to_nav_setting)
+                }
             }
             drawerLayout.closeDrawer(GravityCompat.START)
             true
@@ -59,5 +65,30 @@ class DashboardActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.app_bar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val currentFragment = findNavController(R.id.nav_host_fragment).currentDestination?.id
+        when (item.itemId) {
+            R.id.action_search -> {
+                when (currentFragment) {
+                    R.id.nav_movies -> navController.navigate(R.id.action_nav_movies_to_nav_search_movie)
+                    R.id.nav_details -> navController.navigate(R.id.action_nav_details_to_nav_search_movie)
+                    R.id.nav_top_rated -> navController.navigate(R.id.action_nav_top_rated_to_nav_search_movie)
+                    R.id.nav_about -> navController.navigate(R.id.action_nav_about_to_nav_search_movie)
+                    R.id.nav_watchlist_movie -> navController.navigate(R.id.action_nav_watchlist_movie_to_nav_search_movie)
+                    R.id.nav_settings -> navController.navigate(R.id.action_nav_setting_to_nav_search_movie)
+                    R.id.nav_search_movie -> {
+                        Toast.makeText(this, "You are on search page", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

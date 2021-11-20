@@ -1,9 +1,12 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Loonly</string>
 
     <!--  AUTHOR  -->
     <string name="author_name">A. Muh. Fakhry Mubarak</string>
     <string name="author_email">fakhrymubarak@gmail.com</string>
+
+    <!-- APP BAR -->
+    <string name="search_movies">Search Movies</string>
 
     <!--  BOTTOM NAVBAR  -->
     <string name="title_movies">Movies</string>
@@ -11,10 +14,10 @@
     <string name="title_top_rated">Top Rated Movies</string>
 
     <!--  SIDE NAV BAR  -->
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="menu_watch_list_movies">Watchlist Movies</string>
+    <string name="menu_search_movies">Search Movies</string>
     <string name="menu_about">About Developer</string>
+    <string name="menu_setting">Settings</string>
 
     <!-- MOVIE FRAGMENT -->
     <string name="topRated">Top Rated All Times</string>
@@ -24,7 +27,6 @@
     <string name="movies_like_this">Movies Like This</string>
     <string name="watchlist">Watchlist</string>
     <string name="share">Share</string>
-    <string name="title_fav">Module Title</string>
     <string name="vote">%1$s (%2$s)</string>
     <string name="year_duration">%1$s • %2$dh %3$dm</string>
     <string name="company">%1$s</string>
@@ -43,6 +45,9 @@
     <string name="cd_button_image">Button Image</string>
     <string name="cd_button_gmail">Button Gmail</string>
     <string name="cd_button_instagram">Button Instagram</string>
-    <string name="title_movie_details">Movie Details</string>
-    <string name="title_watchlist">Watchlist</string>
+
+    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="title_watchlist" tools:ignore="UnusedResources">Watchlist</string>
+    <string name="title_search" tools:ignore="UnusedResources">Search</string>
+
 </resources>

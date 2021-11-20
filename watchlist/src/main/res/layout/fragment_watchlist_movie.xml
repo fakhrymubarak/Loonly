@@ -5,7 +5,6 @@
     android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryBrand"
     tools:context=".WatchlistMovieFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -49,7 +48,7 @@
 
             <TextView
                 android:id="@+id/tv_empty"
-                style="@style/TextStyles.Raleway.Light.Large"
+                style="@style/TextStyles.Raleway.Dark.Large"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"

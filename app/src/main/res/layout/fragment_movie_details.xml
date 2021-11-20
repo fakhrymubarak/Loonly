@@ -5,7 +5,6 @@
     android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryBrand"
     tools:context=".ui.movies.details.MovieDetailsFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -34,14 +33,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/cd_movie_backdrop"
-                android:src="@drawable/shape_rec_bg_black_gradient"
+                android:src="@drawable/shape_rec_bg_white_gradient"
                 app:layout_constraintBottom_toBottomOf="@id/iv_backdrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/tv_title_details"
-                style="@style/TextStyles.Raleway.Light.Large"
+                style="@style/TextStyles.Raleway.Dark.Large"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_horizontal_content"
@@ -122,7 +121,7 @@
                 android:layout_marginStart="@dimen/margin_horizontal_content"
                 android:numStars="5"
                 android:progressBackgroundTint="@color/white"
-                android:progressTint="@color/redBrand"
+                android:progressTint="@color/yellowPrimary"
                 android:rating="3.5"
                 app:layout_constraintBottom_toTopOf="@id/tv_tagline"
                 app:layout_constraintStart_toEndOf="@+id/cardView"
@@ -154,10 +153,9 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_add_watchlist"
-                style="@style/Button.Transparent"
+                style="@style/Button.Transparent.Watchlist"
                 android:layout_marginStart="@dimen/margin_horizontal_content"
                 android:layout_marginTop="@dimen/margin_vertical_section"
-                android:drawableStart="@drawable/ic_add"
                 android:drawablePadding="@dimen/margin_sub_content"
                 android:text="@string/watchlist"
                 app:layout_constraintEnd_toStartOf="@id/btn_share"
@@ -167,9 +165,8 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_share"
-                style="@style/Button.Transparent"
+                style="@style/Button.Transparent.Share"
                 android:layout_marginEnd="@dimen/margin_horizontal_content"
-                android:drawableStart="@drawable/ic_share"
                 android:text="@string/share"
                 app:layout_constraintBottom_toBottomOf="@+id/btn_add_watchlist"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -178,7 +175,7 @@
 
             <TextView
                 android:id="@+id/tv_synopsis_details"
-                style="@style/TextStyles.Raleway.Light.Regular"
+                style="@style/TextStyles.Raleway.Dark.Regular"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin_horizontal_content"
@@ -191,7 +188,7 @@
 
             <TextView
                 android:id="@+id/tv_similar"
-                style="@style/TextStyles.Raleway.Light.Large"
+                style="@style/TextStyles.Raleway.Dark.Large"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_horizontal_section"
@@ -233,7 +230,7 @@
 
             <TextView
                 android:id="@+id/tv_loading"
-                style="@style/TextStyles.Raleway.Light.Regular"
+                style="@style/TextStyles.Raleway.Dark.Regular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_horizontal_section"

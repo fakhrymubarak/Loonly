@@ -6,20 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.fakhry.loonly.DashboardActivity
 import com.fakhry.loonly.R
 import com.fakhry.loonly.adapter.GridMovieAdapter
+import com.fakhry.loonly.core.const.Const
 import com.fakhry.loonly.core.data.Resource
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
-import com.fakhry.loonly.core.const.Const
 import com.fakhry.loonly.databinding.FragmentMovieDetailsBinding
+import com.fakhry.loonly.helper.Settings
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.floor
 import kotlin.properties.Delegates
@@ -117,11 +120,18 @@ class MovieDetailsFragment : Fragment() {
                 floor(movie.runtime / 60.0).toInt(),
                 movie.runtime % 60
             )
-
             tvProductionCompany.text = getString(
                 R.string.company,
                 movie.productionCompanies.joinToString(separator = " • ", transform = { it.name }),
             )
+
+            val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            when (prefs.getInt(Settings.THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
+                AppCompatDelegate.MODE_NIGHT_YES ->
+                    binding.ivTransparent.setImageResource(R.drawable.shape_rec_bg_black_gradient)
+                else ->
+                    binding.ivTransparent.setImageResource(R.drawable.shape_rec_bg_white_gradient)
+            }
 
             movie.productionCompanies.first().name
             tvTagline.text = movie.tagline
@@ -255,13 +265,23 @@ class MovieDetailsFragment : Fragment() {
                 0
             )
         } else {
-            binding.btnAddWatchlist.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.ic_add,
-                0,
-                0,
-                0
-            )
-
+            val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            when (prefs.getInt(Settings.THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
+                AppCompatDelegate.MODE_NIGHT_YES ->
+                    binding.btnAddWatchlist.setCompoundDrawablesWithIntrinsicBounds(
+                        R.drawable.ic_add_light,
+                        0,
+                        0,
+                        0
+                    )
+                else ->
+                    binding.btnAddWatchlist.setCompoundDrawablesWithIntrinsicBounds(
+                        R.drawable.ic_add_dark,
+                        0,
+                        0,
+                        0
+                    )
+            }
         }
 
     private fun setLoading(state: Boolean) {
