@@ -1,9 +1,7 @@
 package com.fakhry.loonly.ui.movies.dashboard
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,30 +16,20 @@ import com.fakhry.loonly.adapter.GridMovieAdapter
 import com.fakhry.loonly.adapter.ListPosterAdapter
 import com.fakhry.loonly.core.data.Resource
 import com.fakhry.loonly.core.domain.model.Movie
+import com.fakhry.loonly.core.utils.viewBinding
 import com.fakhry.loonly.databinding.FragmentMoviesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MovieFragment : Fragment() {
+class MovieFragment : Fragment(R.layout.fragment_movies) {
 
     private val movieViewModel: MovieViewModel by viewModels()
-    private var _binding: FragmentMoviesBinding? = null
+    private val binding: FragmentMoviesBinding by viewBinding(FragmentMoviesBinding::bind)
 
     private lateinit var popularsAdapter: GridMovieAdapter
     private var starterCarouselItem: Int = 3
     private var popularMovieCurrentPage: Int = 1
     private var isFetching = false
-
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentMoviesBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,6 +43,13 @@ class MovieFragment : Fragment() {
                 findNavController().navigate(R.id.action_nav_movies_to_nav_top_rated)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        binding.rvPopulars.adapter = null
+        binding.rvPopulars.adapter = null
+        binding.vpImageSlider.adapter = null
+        super.onDestroyView()
     }
 
     private fun setViewModel() {

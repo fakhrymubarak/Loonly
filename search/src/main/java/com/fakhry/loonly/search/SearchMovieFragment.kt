@@ -2,9 +2,7 @@ package com.fakhry.loonly.search
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -12,32 +10,22 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.fakhry.loonly.adapter.GridMovieAdapter
+import com.fakhry.loonly.core.utils.viewBinding
 import com.fakhry.loonly.di.SearchModuleDependencies
 import com.fakhry.loonly.search.databinding.FragmentSearchMovieBinding
 import com.fakhry.loonly.search.di.DaggerSearchComponent
 import dagger.hilt.android.EntryPointAccessors
 import javax.inject.Inject
 
-class SearchMovieFragment : Fragment() {
+class SearchMovieFragment : Fragment(R.layout.fragment_search_movie) {
 
     @Inject
     lateinit var factory: ViewModelFactory
+    private val viewModel: SearchMovieViewModel by viewModels { factory }
 
-    private val viewModel: SearchMovieViewModel by viewModels {
-        factory
-    }
-    private lateinit var binding: FragmentSearchMovieBinding
+    private val binding: FragmentSearchMovieBinding by viewBinding(FragmentSearchMovieBinding::bind)
     private val searchMovieAdapter = GridMovieAdapter()
     private var currentQuery = ""
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentSearchMovieBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

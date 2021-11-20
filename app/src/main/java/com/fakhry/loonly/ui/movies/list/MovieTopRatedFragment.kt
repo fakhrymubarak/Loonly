@@ -1,40 +1,29 @@
 package com.fakhry.loonly.ui.movies.list
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.fakhry.loonly.R
 import com.fakhry.loonly.adapter.GridMovieAdapter
 import com.fakhry.loonly.core.data.Resource
 import com.fakhry.loonly.core.domain.model.Movie
+import com.fakhry.loonly.core.utils.viewBinding
 import com.fakhry.loonly.databinding.FragmentTopRatedBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MovieTopRatedFragment : Fragment() {
+class MovieTopRatedFragment : Fragment(R.layout.fragment_top_rated) {
 
     private val viewModel: MovieTopRatedViewModel by viewModels()
+    private val binding: FragmentTopRatedBinding by viewBinding(FragmentTopRatedBinding::bind)
+
     private lateinit var popularsAdapter: GridMovieAdapter
-    private var _binding: FragmentTopRatedBinding? = null
     private var currentPage: Int = 1
     private var isFetching = false
-
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentTopRatedBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

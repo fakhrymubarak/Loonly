@@ -8,9 +8,11 @@ import com.fakhry.loonly.core.data.source.remote.response.movie.playings.MovieRe
 import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
 import com.fakhry.loonly.core.domain.repository.ILoonlyRepository
-import com.fakhry.loonly.core.utils.AppExecutors
 import com.fakhry.loonly.core.utils.DataMapper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -18,8 +20,7 @@ import javax.inject.Singleton
 @Singleton
 class LoonlyRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
+    private val localDataSource: LocalDataSource
 ) : ILoonlyRepository {
 
     /*MOVIE SECTION*/
@@ -156,12 +157,12 @@ class LoonlyRepository @Inject constructor(
 
     override fun insertWatchlistMovie(movie: Movie, order: Int) {
         val movieEntity = DataMapper.mapMovieDomainToEntity(movie, order)
-        appExecutors.diskIO().execute { localDataSource.insertMovieWatchlist(movieEntity) }
+        CoroutineScope(Dispatchers.IO).launch { localDataSource.insertMovieWatchlist(movieEntity) }
     }
 
     override fun deleteWatchlistMovie(movie: Movie, order: Int) {
         val movieEntity = DataMapper.mapMovieDomainToEntity(movie, order)
-        appExecutors.diskIO().execute { localDataSource.delMovieWatchlist(movieEntity) }
+        CoroutineScope(Dispatchers.IO).launch { localDataSource.delMovieWatchlist(movieEntity) }
     }
 
 
