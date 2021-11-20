@@ -29,11 +29,6 @@
 
     <style name="Theme.Loonly.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <!--  Side Nav  -->
-    <style name="SideNav" parent="Widget.Design.NavigationView">
-        <item name="android:background">@color/white</item>
-    </style>
-
     <!--  Splash Screen Theme-->
     <style name="SplashTheme" parent="Theme.Loonly.NoActionBar">
         <item name="android:windowBackground">@drawable/layer_splash_background</item>
@@ -73,24 +68,6 @@
     <style name="TextStyles.Raleway.Dark.Regular">
         <item name="android:textSize">14sp</item>
     </style>
-
-
-    <!-- Light -->
-    <style name="TextStyles.Raleway.Light" parent="Widget.AppCompat.TextView">
-        <item name="android:textColor">@color/white</item>
-    </style>
-
-    <!--  Light Large  -->
-    <style name="TextStyles.Raleway.Light.Large">
-        <item name="android:textSize">16sp</item>
-        <item name="android:fontFamily">@font/raleway_bold</item>
-    </style>
-
-    <!--  Light Regular  -->
-    <style name="TextStyles.Raleway.Light.Regular">
-        <item name="android:textSize">14sp</item>
-    </style>
-
 
     <!--  BUTTON STYLES -->
     <style name="Button" parent="Widget.AppCompat.Button">

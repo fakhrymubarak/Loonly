@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Loonly</string>
 
     <!--  AUTHOR  -->
@@ -47,7 +47,7 @@
     <string name="cd_button_instagram">Button Instagram</string>
 
     <string name="enable_dark_mode">Enable Dark Mode</string>
-    <string name="title_watchlist">Watchlist</string>
-    <string name="title_search">Search</string>
+    <string name="title_watchlist" tools:ignore="UnusedResources">Watchlist</string>
+    <string name="title_search" tools:ignore="UnusedResources">Search</string>
 
 </resources>
