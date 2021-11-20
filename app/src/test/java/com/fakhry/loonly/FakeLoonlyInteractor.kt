@@ -17,9 +17,9 @@ class FakeLoonlyInteractor : LoonlyUseCase {
 
     private var shouldReturnNetworkError = false
 
-    fun setShouldReturnNetworkError(state: Boolean) {
-        shouldReturnNetworkError = state
-    }
+//    fun setShouldReturnNetworkError(state: Boolean) {
+//        shouldReturnNetworkError = state
+//    }
 
     private val movies = listOf(
         Movie(
@@ -53,7 +53,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMoviePlayings(): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
@@ -62,7 +62,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMoviesTop(): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
@@ -71,7 +71,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMoviesTopByPage(page: Int): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
@@ -80,7 +80,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMoviesPopulars(): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
@@ -89,7 +89,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMoviesPopularsByPage(page: Int): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
@@ -98,7 +98,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMovieDetails(id: Int): Flow<Resource<MovieDetails>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<MovieDetails>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movieDetails))
             }
@@ -107,7 +107,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMovieSimilar(id: Int, page: Int): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
@@ -116,7 +116,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun searchMovie(query: String, page: Int): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
@@ -125,7 +125,7 @@ class FakeLoonlyInteractor : LoonlyUseCase {
     override fun getMovieWatchlist(): Flow<Resource<List<Movie>>> =
         flow {
             if (shouldReturnNetworkError) {
-                emit(Resource.Error<List<Movie>>("Network Error"))
+                emit(Resource.Error("Network Error"))
             } else {
                 emit(Resource.Success(movies))
             }
