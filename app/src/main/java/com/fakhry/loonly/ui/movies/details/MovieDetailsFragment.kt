@@ -113,7 +113,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
             )
 
             val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            when (prefs.getInt(Settings.THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
+            when (prefs.getInt(Settings.KEY_THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
                 AppCompatDelegate.MODE_NIGHT_YES ->
                     binding.ivTransparent.setImageResource(R.drawable.shape_rec_bg_black_gradient)
                 else ->
@@ -253,7 +253,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
             )
         } else {
             val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
-            when (prefs.getInt(Settings.THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
+            when (prefs.getInt(Settings.KEY_THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
                 AppCompatDelegate.MODE_NIGHT_YES ->
                     binding.btnAddWatchlist.setCompoundDrawablesWithIntrinsicBounds(
                         R.drawable.ic_add_light,

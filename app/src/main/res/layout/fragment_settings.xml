@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.about.AboutFragment">
 
-
     <TextView
         android:id="@+id/tv_enable_dark_mode"
         style="@style/TextStyles.Raleway.Dark.Regular"

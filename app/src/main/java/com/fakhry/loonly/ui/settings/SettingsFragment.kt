@@ -6,11 +6,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.preference.PreferenceManager
+import com.fakhry.loonly.R
 import com.fakhry.loonly.core.utils.viewBinding
 import com.fakhry.loonly.databinding.FragmentSettingsBinding
 import com.fakhry.loonly.helper.Settings
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private val binding: FragmentSettingsBinding by viewBinding(FragmentSettingsBinding::bind)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -20,16 +21,16 @@ class SettingsFragment : Fragment() {
 
         binding.switchMode.isChecked =
             (prefs.getInt(
-                Settings.THEMES_MODE,
+                Settings.KEY_THEMES_MODE,
                 Settings.DEFAULT_THEMES_MODE
             ) == AppCompatDelegate.MODE_NIGHT_YES)
 
         binding.switchMode.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                prefs.edit().putInt(Settings.THEMES_MODE, AppCompatDelegate.MODE_NIGHT_YES).apply()
+                prefs.edit().putInt(Settings.KEY_THEMES_MODE, AppCompatDelegate.MODE_NIGHT_YES).apply()
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
-                prefs.edit().putInt(Settings.THEMES_MODE, AppCompatDelegate.MODE_NIGHT_NO).apply()
+                prefs.edit().putInt(Settings.KEY_THEMES_MODE, AppCompatDelegate.MODE_NIGHT_NO).apply()
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }

@@ -8,8 +8,8 @@ import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.fakhry.loonly.R
-import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.const.Const
+import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.databinding.ItemCaraouselBinding
 import com.fakhry.loonly.helper.Settings
 
@@ -51,7 +51,7 @@ class CarouselAdapter : RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder>
                 }
 
                 val prefs = PreferenceManager.getDefaultSharedPreferences(itemView.context)
-                when (prefs.getInt(Settings.THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
+                when (prefs.getInt(Settings.KEY_THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
                     AppCompatDelegate.MODE_NIGHT_YES ->
                         binding.imgBg.setImageResource(R.drawable.shape_rec_bg_black_gradient)
                     else ->

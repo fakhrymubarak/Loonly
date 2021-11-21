@@ -51,7 +51,7 @@ class GridMovieAdapter : RecyclerView.Adapter<GridMovieAdapter.GridViewHolder>()
                 tvTitle.text = data.title
 
                 val prefs = PreferenceManager.getDefaultSharedPreferences(itemView.context)
-                when (prefs.getInt(Settings.THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
+                when (prefs.getInt(Settings.KEY_THEMES_MODE, Settings.DEFAULT_THEMES_MODE)) {
                     AppCompatDelegate.MODE_NIGHT_YES ->
                         binding.imgBg.setImageResource(R.drawable.shape_rec_bg_black_gradient)
                     else ->

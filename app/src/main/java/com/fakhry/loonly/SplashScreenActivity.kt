@@ -12,9 +12,8 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
-        val mode = prefs.getInt(Settings.THEMES_MODE, Settings.DEFAULT_THEMES_MODE)
+        val mode = prefs.getInt(Settings.KEY_THEMES_MODE, Settings.DEFAULT_THEMES_MODE)
         AppCompatDelegate.setDefaultNightMode(mode)
-
 
         val intent = Intent(this, DashboardActivity::class.java)
         startActivity(intent)
