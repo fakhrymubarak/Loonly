@@ -25,13 +25,17 @@
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_about.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_blank.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_movie_details.xml" value="0.20989583333333334" />
-        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_movies.xml" value="0.10052083333333334" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_movies.xml" value="0.22" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_settings.xml" value="0.33" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/fragment_top_rated.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_caraousel.xml" value="0.20989583333333334" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_caraousel_placeholder.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_backdrop_mini.xml" value="0.20989583333333334" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_backdrop_mini_placeholder.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_poster.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_poster_full.xml" value="0.20989583333333334" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_poster_full_placeholder.xml" value="0.20989583333333334" />
+        <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/item_mov_poster_placeholder.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/layout/nav_side_header.xml" value="0.20989583333333334" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/menu/app_bar_menu.xml" value="0.1078125" />
         <entry key="..\:/Programming/Android/project-dicoding/made-submission/Loonly/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1078125" />

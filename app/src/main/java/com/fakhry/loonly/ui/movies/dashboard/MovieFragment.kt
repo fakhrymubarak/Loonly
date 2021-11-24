@@ -203,6 +203,26 @@ class MovieFragment : Fragment(R.layout.fragment_movies) {
     private fun setLoading(state: Boolean) {
         binding.swipe.isRefreshing = state
         isFetching = state
+        if(state){
+            binding.apply{
+                pbImageSlider.visibility = View.VISIBLE
+                pbTopRated.visibility = View.VISIBLE
+                pbPopulars.visibility = View.VISIBLE
+                vpImageSlider.visibility = View.INVISIBLE
+                rvTopRated.visibility = View.INVISIBLE
+                rvPopulars.visibility = View.INVISIBLE
+            }
+        }else{
+            binding.apply{
+                pbImageSlider.visibility = View.INVISIBLE
+                pbTopRated.visibility = View.INVISIBLE
+                pbPopulars.visibility = View.INVISIBLE
+                vpImageSlider.visibility = View.VISIBLE
+                rvTopRated.visibility = View.VISIBLE
+                rvPopulars.visibility = View.VISIBLE
+            }
+        }
+
     }
 
     private fun setLoadMoreLoading(state: Boolean) {
