@@ -33,18 +33,18 @@
                 tools:itemCount="10"
                 tools:listitem="@layout/item_mov_poster_full" />
 
-            <ImageView
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/img_empty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/cd_image_empty"
-                android:src="@drawable/ic_empty"
-                android:visibility="visible"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_above="@+id/tv_empty"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.3" />
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="emptydata.json"
+                app:lottie_loop="true" />
 
             <TextView
                 android:id="@+id/tv_empty"
