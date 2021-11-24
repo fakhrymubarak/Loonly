@@ -1,14 +1,15 @@
 package com.fakhry.loonly.core.data.source.remote
 
-import android.util.Log
 import com.fakhry.loonly.core.data.source.remote.network.ApiResponse
 import com.fakhry.loonly.core.data.source.remote.network.ApiService
 import com.fakhry.loonly.core.data.source.remote.response.movie.details.MovieDetailsResponse
 import com.fakhry.loonly.core.data.source.remote.response.movie.playings.MovieResponse
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -26,8 +27,9 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                emit(ApiResponse.Error(e.message.toString()))
+                FirebaseCrashlytics.getInstance().log(e.message.toString())
+                Timber.e(e)
             }
         }.flowOn(Dispatchers.IO)
 
@@ -42,8 +44,9 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                emit(ApiResponse.Error(e.message.toString()))
+                FirebaseCrashlytics.getInstance().log(e.message.toString())
+                Timber.e(e)
             }
         }.flowOn(Dispatchers.IO)
 
@@ -58,8 +61,9 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                emit(ApiResponse.Error(e.message.toString()))
+                FirebaseCrashlytics.getInstance().log(e.message.toString())
+                Timber.e(e)
             }
         }.flowOn(Dispatchers.IO)
 
@@ -69,8 +73,9 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
                 val response = apiService.getMovDetails(id)
                 emit(ApiResponse.Success(response))
             } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                emit(ApiResponse.Error(e.message.toString()))
+                FirebaseCrashlytics.getInstance().log(e.message.toString())
+                Timber.e(e)
             }
         }.flowOn(Dispatchers.IO)
 
@@ -86,8 +91,9 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                emit(ApiResponse.Error(e.message.toString()))
+                FirebaseCrashlytics.getInstance().log(e.message.toString())
+                Timber.e(e)
             }
         }.flowOn(Dispatchers.IO)
 
@@ -102,8 +108,9 @@ class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
                     emit(ApiResponse.Empty)
                 }
             } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.toString())
+                emit(ApiResponse.Error(e.message.toString()))
+                FirebaseCrashlytics.getInstance().log(e.message.toString())
+                Timber.e(e)
             }
         }.flowOn(Dispatchers.IO)
 

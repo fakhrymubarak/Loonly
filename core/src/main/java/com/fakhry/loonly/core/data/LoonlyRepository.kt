@@ -9,6 +9,7 @@ import com.fakhry.loonly.core.domain.model.Movie
 import com.fakhry.loonly.core.domain.model.MovieDetails
 import com.fakhry.loonly.core.domain.repository.ILoonlyRepository
 import com.fakhry.loonly.core.utils.DataMapper
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.*
@@ -65,7 +66,10 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Error -> {
+                    FirebaseCrashlytics.getInstance().log(apiResponse.errorMessage)
+                    emit(Resource.Error(apiResponse.errorMessage))
+                }
                 is ApiResponse.Empty -> emit(Resource.Success(listOf()))
 
             }
@@ -95,7 +99,10 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Error -> {
+                    FirebaseCrashlytics.getInstance().log(apiResponse.errorMessage)
+                    emit(Resource.Error(apiResponse.errorMessage))
+                }
                 is ApiResponse.Empty -> emit(Resource.Success(listOf()))
             }
         }
@@ -108,7 +115,10 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieDetailResponseToDomain(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Error -> {
+                    FirebaseCrashlytics.getInstance().log(apiResponse.errorMessage)
+                    emit(Resource.Error(apiResponse.errorMessage))
+                }
                 is ApiResponse.Empty -> emit(Resource.Error(message = "Movies not Found"))
             }
         }
@@ -121,7 +131,10 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Error -> {
+                    FirebaseCrashlytics.getInstance().log(apiResponse.errorMessage)
+                    emit(Resource.Error(apiResponse.errorMessage))
+                }
                 is ApiResponse.Empty -> emit(Resource.Success(listOf()))
             }
         }
@@ -134,7 +147,10 @@ class LoonlyRepository @Inject constructor(
                     val data = DataMapper.mapMovieResponsesToDomains(apiResponse.data)
                     emit(Resource.Success(data))
                 }
-                is ApiResponse.Error -> emit(Resource.Error(apiResponse.errorMessage))
+                is ApiResponse.Error -> {
+                    FirebaseCrashlytics.getInstance().log(apiResponse.errorMessage)
+                    emit(Resource.Error(apiResponse.errorMessage))
+                }
                 is ApiResponse.Empty -> emit(Resource.Success(listOf()))
             }
         }

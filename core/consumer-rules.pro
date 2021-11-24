@@ -62,6 +62,8 @@
 -if interface * { @retrofit2.http.* <methods>; }
 -keep,allowobfuscation interface <1>
 
+-dontwarn kotlinx.**
+
 
 ##---------------Begin: proguard configuration for Glide  ----------
 -keep public class * implements com.bumptech.glide.module.GlideModule
@@ -84,15 +86,6 @@
 # Uncomment if you use RxJava
 #-dontwarn java.util.concurrent.Flow*
 
-##---------------Begin: proguard configuration for OkHttp ----------
-
-
-# A resource is loaded with a relative path so the package of this class must be preserved.
--keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
-
-# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
--dontwarn org.codehaus.mojo.animal_sniffer.*
-
-# OkHttp platform used only on JVM and when Conscrypt dependency is available.
--dontwarn okhttp3.internal.platform.ConscryptPlatform
--dontwarn org.conscrypt.ConscryptHostnameVerifier
+##---------------Begin: proguard configuration for Firbase Carshlytics  ----------
+-keepattributes SourceFile,LineNumberTable        # Keep file names and line numbers.
+-keep public class * extends java.lang.Exception  # Optional: Keep custom exceptions.

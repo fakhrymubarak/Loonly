@@ -39,6 +39,13 @@ dependencies {
     implementation "androidx.security:security-crypto:1.1.0-alpha03"
     implementation 'com.scottyab:secure-preferences-lib:0.1.7'
 
+    // firebase
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.2.4'
+    implementation 'com.google.firebase:firebase-analytics-ktx:20.0.0'
+
+    // timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
     // local unit test
     implementation "androidx.test:core:1.4.0"
     testImplementation "junit:junit:4.13.2"
