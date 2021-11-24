@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "871388045685",
+    "project_id": "loonly-movie",
+    "storage_bucket": "loonly-movie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871388045685:android:bee75bf9034b6e98aef33c",
+        "android_client_info": {
+          "package_name": "com.fakhry.loonly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871388045685-366a8s96ivslfuhuhluvn15srgqrk7m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyYXhY1vexgy2s5iifYS3x6H4AAx-bIos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871388045685-366a8s96ivslfuhuhluvn15srgqrk7m9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
